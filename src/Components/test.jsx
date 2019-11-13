@@ -1,19 +1,30 @@
 import React, { Component } from "react";
+
 class Test extends Component {
+  state = {
+    menuArray: ["Choose for me", "Let me choose", "Store", "Outfits"]
+  };
+
+  // arrayPushShift = pushShift => {
+  //   console.log(pushShift);
+
+  //   this.setState({});
+  // };
   render() {
     return (
       <React.Fragment>
         <header>
-          <button className="btn btn-nofill">HOME</button>
+          <button className="btn btn-secondary">HOME</button>
           <h1 className="logo-main">ai closet</h1>
         </header>
         <div id="main">
           <nav id="slide-nav" class="full-height">
             <ul>
-              <li className="font-60px">Choose for me</li>
-              <li className="font-50px">Let me choose</li>
-              <li className="font-40px">Store</li>
-              <li className="font-30px">Outfits</li>
+              {this.state.menuArray.map(menuArray => (
+                <li key={menuArray}>
+                  <a href={"#"}>{menuArray}</a>
+                </li>
+              ))}
             </ul>
           </nav>
         </div>

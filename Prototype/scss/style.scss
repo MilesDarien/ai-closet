@@ -1,46 +1,7 @@
+@import 'variables';
 @import 'normalize';
-
-//Colors
-$text-primary:#000000;
-$text-secondary:lighten($color: $text-primary, $amount: 50);
-$text-terciary:lighten($color: $text-primary, $amount: 60);
-$text-quarternary:lighten($color: $text-primary, $amount: 70);
-$text-minimal:lighten($color: $text-primary, $amount: 90);
-$button-bg: #333333;
-$fFamily : "SF Pro Display",
-"Satisfy",
-"SF Pro Text";
-
-$sizes: 11px,
-12px,
-13px,
-15px,
-16px,
-17px,
-20px,
-22px,
-26px,
-28px,
-30px,
-34px,
-40px,
-50px,
-60px,
-;
-
-//font settings
-@each $size in $sizes {
-    .font-#{$size} {
-        font-size: $size;
-    }
-}
-
-@mixin reset-list {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-}
-
+@import 'select';
+@import 'home';
 
 //html tags
 
@@ -84,74 +45,25 @@ header {
 
 //---------------------------
 
+
+
 //button settings
 
 //button default
-.btn-fill {
-    background-color: $button-bg;
-    color: white;
-    border-radius: 25px;
-}
-
-.btn-fill:hover {
-    transition: .3s;
-    background: lighten($color: $button-bg, $amount: 50);
-}
 
 //button text only
-.btn-nofill {
+.btn-secondary {
     background-color: transparent;
     color: $text-primary;
     border: none;
 
 }
 
-.btn-nofill:hover {
-    transition: .3s;
-    color: $text-terciary;
+.btn-secondary:hover {
+    @include on-hover;
 }
 
 //Navigation settings
 #main {
     height: 100%;
-}
-
-#slide-nav {
-    width: 100vw;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-weight: bold;
-
-    ul {
-        @include reset-list;
-        display: block;
-
-
-        li {
-            margin: 40px 0 40px 0;
-        }
-
-        li:first-child {
-            margin-left: 1em;
-            color: $text-primary;
-        }
-
-        li:nth-child(2) {
-            margin-left: .8em;
-            color: $text-secondary;
-        }
-
-        li:nth-child(3) {
-            margin-left: .5em;
-            color: $text-terciary;
-        }
-
-        li:nth-child(4) {
-            color: $text-minimal;
-        }
-
-
-    }
 }
