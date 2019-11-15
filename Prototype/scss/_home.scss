@@ -6,10 +6,6 @@
     align-items: center;
     font-weight: bold;
 
-    a {
-        text-decoration: none;
-    }
-
     ul {
         @include reset-list;
         display: block;

@@ -1,6 +1,5 @@
 .top-nav {
-    width: 95%;
-    margin: auto;
+
 
     ul {
         @include reset-list;
@@ -56,7 +55,7 @@ main {
     @include display-flex-center;
 
     .items {
-        height: 100px;
+        height: max-content;
         @include items;
     }
 }

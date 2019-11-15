@@ -1,0 +1,32 @@
+body {
+    width: 95% !important;
+    margin: auto;
+}
+
+main {
+
+    justify-content: center;
+
+    .items {
+        justify-content: center;
+
+        .item-wrapper {
+            display: flex;
+            padding: 2em 0;
+            width: 100%;
+            border: 1px solid $text-terciary;
+
+            .item {
+                width: 100%;
+                display: inherit;
+                align-items: center;
+
+
+                h3 {
+                    @extend .font-26px;
+                    text-align: left;
+                }
+            }
+        }
+    }
+}
