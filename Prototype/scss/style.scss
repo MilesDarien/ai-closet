@@ -13,7 +13,9 @@ html {
 
 body {
     height: 100vh;
+    max-height: 1024px;
     width: 100%;
+    max-width: 1366px;
     overflow: hidden;
 }
 
