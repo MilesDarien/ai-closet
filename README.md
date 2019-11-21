@@ -1,3 +1,7 @@
+## 卒業作品
+
+A project for use with ipad for our graduate year teamwork
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

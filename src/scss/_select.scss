@@ -1,0 +1,61 @@
+.top-nav {
+
+
+    ul {
+        @include reset-list;
+        margin: 1em;
+        margin-top: 5px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+
+        li {
+            padding: 8px 30px;
+        }
+
+        li:nth-child(2) {
+            @extend .font-34px;
+            font-weight: 100;
+        }
+
+        li:nth-child(4) {
+            @extend li:nth-child(2);
+        }
+
+        li:nth-child(6) {
+            @extend li:nth-child(2);
+        }
+    }
+
+    a {
+        @include reset-list;
+        @extend .font-28px;
+        @include a-tag-reset;
+        margin-top: 5px;
+
+    }
+
+
+    a:hover {
+        @include selected;
+
+        li {
+            color: white;
+        }
+    }
+
+}
+
+// main
+
+main {
+    width: 80%;
+    height: 80%;
+    margin: auto;
+    @include display-flex-center;
+
+    .items {
+        height: max-content;
+        @include items;
+    }
+}
