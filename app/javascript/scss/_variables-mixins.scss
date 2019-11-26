@@ -1,0 +1,75 @@
+//Colors
+$text-primary:#000000;
+$text-secondary:lighten($color: $text-primary, $amount: 50);
+$text-terciary:lighten($color: $text-primary, $amount: 60);
+$text-quarternary:lighten($color: $text-primary, $amount: 70);
+$text-minimal:lighten($color: $text-primary, $amount: 90);
+$button-bg: #333333;
+$fFamily : "SF Pro Display",
+"Satisfy",
+"SF Pro Text";
+
+
+//font settings
+$sizes: 11px,
+12px,
+13px,
+15px,
+16px,
+17px,
+20px,
+22px,
+26px,
+28px,
+30px,
+34px,
+40px,
+50px,
+60px,
+;
+
+@each $size in $sizes {
+    .font-#{$size} {
+        font-size: $size;
+    }
+}
+
+@mixin a-tag-reset {
+    text-decoration: none;
+    color: $text-primary;
+}
+
+
+@mixin reset-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+@mixin selected {
+    transition: .3s;
+    border-radius: 25px;
+    background: $text-primary;
+
+    a {
+        opacity: 80%;
+    }
+}
+
+@mixin on-hover {
+    transition: .3s;
+    color: $text-terciary;
+}
+
+@mixin display-flex-center {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+@mixin items {
+    @include display-flex-center;
+    width: 100%;
+    align-items: center;
+    border: 1px solid $text-terciary;
+}

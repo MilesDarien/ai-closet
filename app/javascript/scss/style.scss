@@ -1,0 +1,175 @@
+@import 'variables-mixins';
+@import 'normalize';
+@import 'select';
+@import 'home';
+@import 'choose';
+
+//html tags
+
+html {
+    font-family: $fFamily;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    max-height: 1024px;
+    width: 100%;
+    max-width: 1366px;
+    overflow: hidden;
+}
+
+a {
+    text-decoration: none;
+    user-select: none;
+    cursor: default;
+}
+
+
+button {
+    font-family: "SF Pro Display";
+    font-weight: bold;
+    height: 55px;
+    width: 120px;
+    border: none;
+    font-size: 34px;
+
+}
+
+header {
+    display: flex;
+    margin: 0 1em;
+    align-items: center;
+    justify-content: space-between;
+}
+
+//------------------------
+//logo
+
+.logo-main {
+    font-family: "Satisfy";
+    height: max-content;
+    font-size: 60px;
+    margin: .5em;
+    user-select: none;
+}
+
+//---------------------------
+
+
+//display settings
+
+.display-settings {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    span:nth-child(2) {
+        @extend .font-30px;
+        margin: 0 5px;
+    }
+
+    span:nth-child(4) {
+        @extend span:nth-child(2);
+    }
+
+    @mixin threeLines {
+        display: block;
+        width: 25px;
+        height: 3px;
+        transform: scale(1.1);
+        background-color: $text-primary;
+    }
+
+    @mixin square {
+        display: block;
+        width: 20px;
+        height: 20px;
+        border: 3px $text-primary solid;
+    }
+
+    @mixin tiles {
+        display: block;
+        border: 3px solid $text-primary;
+        height: 7px;
+        width: 7px;
+    }
+
+    .list {
+        @include threeLines;
+        position: relative;
+        top: -8px;
+    }
+
+    .list:before {
+        content: "";
+        margin: 0 1px;
+        @include threeLines;
+        width: 23px;
+        position: relative;
+        top: 9px;
+    }
+
+    .list:after {
+        content: "";
+        @include threeLines;
+        margin: 0 1px;
+        width: 23px;
+        position: relative;
+        top: 14px;
+    }
+
+
+
+    .full {
+        @include square;
+        position: relative;
+        top: 2px;
+    }
+
+
+    .tiles {
+        @include tiles;
+        position: relative;
+        top: -4px;
+    }
+
+    .tiles:before {
+        content: "";
+        @include tiles;
+        position: relative;
+        top: -2.5px;
+        left: 10px;
+    }
+
+    .tiles:after {
+        content: "";
+        @include tiles;
+        position: relative;
+        top: -2px;
+        left: -2.5px;
+
+    }
+}
+
+
+//button settings
+
+//button default
+
+//button text only
+.btn-secondary {
+    background-color: transparent;
+    color: $text-primary;
+    border: none;
+
+}
+
+.btn-secondary:hover {
+    @include on-hover;
+}
+
+.btn-back {
+    @extend .btn-secondary;
+    @extend button;
+}

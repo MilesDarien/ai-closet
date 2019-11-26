@@ -1,0 +1,59 @@
+#main {
+    height: 100%;
+}
+
+.slide-nav {
+    width: 100vw;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+
+    ul {
+        @include reset-list;
+        display: block;
+
+
+        li {
+            margin: 40px 0 40px 0;
+        }
+
+        li:first-child {
+            @extend .font-60px;
+
+            a {
+                margin-left: 1em;
+                color: $text-primary;
+            }
+
+        }
+
+        li:nth-child(2) {
+            @extend .font-50px;
+
+            a {
+                margin-left: .8em;
+                color: $text-secondary;
+            }
+        }
+
+        li:nth-child(3) {
+            @extend .font-40px;
+
+            a {
+                margin-left: .5em;
+                color: $text-terciary;
+            }
+        }
+
+        li:nth-child(4) {
+            @extend .font-30px;
+
+            a {
+                color: $text-minimal;
+            }
+        }
+    }
+
+}
