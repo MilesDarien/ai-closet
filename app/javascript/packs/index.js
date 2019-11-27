@@ -18,19 +18,20 @@ import "../scss/style.scss";
 import App from "../components/App";
 import LetMeChoose from "../components/LetMeChoose";
 
-// import { Route, BrowserRouter as Router } from "react-router-dom";
-// import { Redirect } from "react-router-dom";
+import { Route, BrowserRouter as Router } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import AiCoordinate from "../components/AiCoordinate";
 
-// const routing = (
-//   <Router>
-//     <Route exact path="/" render={() => <Redirect to={App} />} />
-//     <Route path="../components/app" component={App} />
-//     <Route path="../components/AiCoordinate" component={AiCoordinate} />
-//     <Route path="../components/LetMeChoose" component={LetMeChoose} />
-//   </Router>
-// );
+const routing = (
+  <Router>
+    <Route exact path="/" render={() => <Redirect to="/app" />} />
+    <Route path="/app" component={App} />
+    <Route path="/AiCoordinate" component={AiCoordinate} />
+    <Route path="/LetMeChoose" component={LetMeChoose} />
+  </Router>
+);
 
 document.addEventListener("DOMContentLoaded", () => {
-  ReactDOM.render(<App />, document.getElementById("root"));
+  ReactDOM.render(routing, document.getElementById("root"));
 });
+// ReactDOM.render(routing, document.getElementById("root"));

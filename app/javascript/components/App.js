@@ -24,31 +24,6 @@ class App extends Component {
     };
 
     return (
-      //   <React.Fragment>
-      //     <header>
-      //       <button className="btn btn-secondary">HOME</button>
-      //       <h1 className="logo-main">ai closet</h1>
-      //     </header>
-      //     <div id="main">
-      //       <Swipeable className="full-height slide-nav" {...config}>
-      //         <ul>
-      //           <li>
-      //             <Link to={links[0]}>{names[0]}</Link>
-      //           </li>
-      //           <li>
-      //             <Link to="#">{names[1]}</Link>
-      //           </li>
-      //           <li>
-      //             <Link to="#">{names[2]}</Link>
-      //           </li>
-      //           <li>
-      //             <Link to="#">{names[3]}</Link>
-      //           </li>
-      //         </ul>
-      //       </Swipeable>
-      //     </div>
-      //   </React.Fragment>
-      // );
       <React.Fragment>
         <header>
           <button className="btn btn-secondary">HOME</button>
@@ -58,22 +33,49 @@ class App extends Component {
           <Swipeable className="full-height slide-nav" {...config}>
             <ul>
               <li>
-                <a href={links[0]}>{names[0]}</a>
+                <Link to={links[0]}>{names[0]}</Link>
               </li>
               <li>
-                <a href="#">{names[1]}</a>
+                <Link to="">{names[1]}</Link>
               </li>
               <li>
-                <a href="#">{names[2]}</a>
+                <Link to="">{names[2]}</Link>
               </li>
               <li>
-                <a href="#">{names[3]}</a>
+                <Link to="">{names[3]}</Link>
               </li>
             </ul>
           </Swipeable>
         </div>
       </React.Fragment>
     );
+
+    //Test
+    //   <React.Fragment>
+    //     <header>
+    //       <button className="btn btn-secondary">HOME</button>
+    //       <h1 className="logo-main">ai closet</h1>
+    //     </header>
+    //     <div id="main">
+    //       <Swipeable className="full-height slide-nav" {...config}>
+    //         <ul>
+    //           <li>
+    //             <a href={links[0]}>{names[0]}</a>
+    //           </li>
+    //           <li>
+    //             <a href="#">{names[1]}</a>
+    //           </li>
+    //           <li>
+    //             <a href="#">{names[2]}</a>
+    //           </li>
+    //           <li>
+    //             <a href="#">{names[3]}</a>
+    //           </li>
+    //         </ul>
+    //       </Swipeable>
+    //     </div>
+    //   </React.Fragment>
+    // );
   }
 
   //manipulates array of links and Names to move menu up

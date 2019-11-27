@@ -7,7 +7,7 @@ class AiCoordinate extends Component {
     return (
       <React.Fragment>
         <header>
-          <Link to="/app">
+          <Link to="/">
             <button className="btn btn-secondary">Back</button>
           </Link>
           <h1 className="logo-main">ai closet</h1>
