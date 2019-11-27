@@ -1,9 +1,11 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
+import { Swipeable } from "react-swipeable";
 
 let arr = ["Choose for me", "Let me choose", "Store", "Outfits"];
 let links = ["/AiCoordinate", "/LetMeChoose", "/Store", "/Outfits"];
 
-class Main extends Component {
+class App extends Component {
   state = {
     menuArray: arr,
     menuLinks: links
@@ -13,25 +15,50 @@ class Main extends Component {
     let links = this.state.menuLinks;
     let names = this.state.menuArray;
 
-    // //Swipe gesture settings for menu
-    // const config = {
-    //   onSwipedUp: () => this.handleMenuUp(),
-    //   onSwipedDown: () => this.handleMenuDown(),
-    //   preventDefaultTouchmoveEvent: true,
-    //   trackMouse: true
-    // };
+    //Swipe gesture settings for menu
+    const config = {
+      onSwipedUp: () => this.handleMenuUp(),
+      onSwipedDown: () => this.handleMenuDown(),
+      preventDefaultTouchmoveEvent: true,
+      trackMouse: true
+    };
 
     return (
+      //   <React.Fragment>
+      //     <header>
+      //       <button className="btn btn-secondary">HOME</button>
+      //       <h1 className="logo-main">ai closet</h1>
+      //     </header>
+      //     <div id="main">
+      //       <Swipeable className="full-height slide-nav" {...config}>
+      //         <ul>
+      //           <li>
+      //             <Link to={links[0]}>{names[0]}</Link>
+      //           </li>
+      //           <li>
+      //             <Link to="#">{names[1]}</Link>
+      //           </li>
+      //           <li>
+      //             <Link to="#">{names[2]}</Link>
+      //           </li>
+      //           <li>
+      //             <Link to="#">{names[3]}</Link>
+      //           </li>
+      //         </ul>
+      //       </Swipeable>
+      //     </div>
+      //   </React.Fragment>
+      // );
       <React.Fragment>
         <header>
           <button className="btn btn-secondary">HOME</button>
           <h1 className="logo-main">ai closet</h1>
         </header>
         <div id="main">
-          <div className="full-height slide-nav">
+          <Swipeable className="full-height slide-nav" {...config}>
             <ul>
               <li>
-                <a href="#">{names[0]}</a>
+                <a href={links[0]}>{names[0]}</a>
               </li>
               <li>
                 <a href="#">{names[1]}</a>
@@ -43,7 +70,7 @@ class Main extends Component {
                 <a href="#">{names[3]}</a>
               </li>
             </ul>
-          </div>
+          </Swipeable>
         </div>
       </React.Fragment>
     );
@@ -83,4 +110,4 @@ class Main extends Component {
   };
 }
 
-export default Main;
+export default App;
