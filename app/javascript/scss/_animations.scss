@@ -1,0 +1,68 @@
+@keyframes menu-top-up {
+    from {
+        @extend .font-60px;
+    }
+
+    to {
+        @extend .font-30px;
+    }
+}
+
+@keyframes menu-top-up-two {
+    from {
+        @extend .font-50px;
+    }
+
+    to {
+        @extend .font-60px;
+    }
+}
+
+@keyframes menu-top-three {
+    from {
+        @extend .font-40px;
+    }
+
+    to {
+        @extend .font-50px;
+    }
+}
+
+@keyframes menu-top-up-four {
+    from {
+        @extend .font-30px;
+    }
+
+    to {
+        @extend .font-40px;
+    }
+}
+
+.menu-anim-up-one {
+    animation: menu-top-up;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+    transition: 0.3s;
+
+}
+
+.menuAnimUpTwo {
+    animation: menu-top-up-two;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+    transition: 0.3s;
+}
+
+.menu-anim-up-three {
+    animation: menu-top-up-three;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+    transition: 0.3s;
+}
+
+.menu-anim-up-four {
+    animation: menu-top-up-four;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+    transition: 0.3s;
+}

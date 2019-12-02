@@ -17,6 +17,10 @@
 
         li {
             margin: 40px 0 40px 0;
+
+            a {
+                transition: .5s;
+            }
         }
 
         li:first-child {
