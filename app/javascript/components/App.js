@@ -1,24 +1,27 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { Swipeable } from "react-swipeable";
-
+// Array declaration. I do it here for easier manipulation
 let arr = ["Choose for me", "Let me choose", "Store", "Outfits"];
 let links = ["/AiCoordinate", "/LetMeChoose", "/Store", "/Outfits"];
 
 class App extends Component {
   state = {
     menuArray: arr,
-    menuLinks: links
+    menuLinks: links,
+    menuData: [
+      { id: 1, data: <Link to={links[0]}>{arr[0]}</Link> },
+      { id: 2, data: <Link to="#">{arr[1]}</Link> },
+      { id: 3, data: <Link to="#">{arr[2]}</Link> },
+      { id: 4, data: <Link to="#">{arr[3]}</Link> }
+    ]
   };
 
   render() {
-    let links = this.state.menuLinks;
-    let names = this.state.menuArray;
-
-    //Swipe gesture settings for menu
+    //Swipe gesture settings for menu calling the handleMenu function
     const config = {
-      onSwipedUp: () => this.handleMenuUp(),
-      onSwipedDown: () => this.handleMenuDown(),
+      onSwipedUp: () => this.handleMenu("up"),
+      onSwipedDown: () => this.handleMenu("down"),
       preventDefaultTouchmoveEvent: true,
       trackMouse: true
     };
@@ -32,50 +35,14 @@ class App extends Component {
         <div id="main">
           <Swipeable className="full-height slide-nav" {...config}>
             <ul>
-              <li>
-                <Link to={links[0]}>{names[0]}</Link>
-              </li>
-              <li>
-                <Link to="">{names[1]}</Link>
-              </li>
-              <li>
-                <Link to="">{names[2]}</Link>
-              </li>
-              <li>
-                <Link to="">{names[3]}</Link>
-              </li>
+              {this.state.menuData.map(menu => (
+                <li key={menu.id}>{menu.data}</li>
+              ))}
             </ul>
           </Swipeable>
         </div>
       </React.Fragment>
     );
-
-    //Test
-    //   <React.Fragment>
-    //     <header>
-    //       <button className="btn btn-secondary">HOME</button>
-    //       <h1 className="logo-main">ai closet</h1>
-    //     </header>
-    //     <div id="main">
-    //       <Swipeable className="full-height slide-nav" {...config}>
-    //         <ul>
-    //           <li>
-    //             <a href={links[0]}>{names[0]}</a>
-    //           </li>
-    //           <li>
-    //             <a href="#">{names[1]}</a>
-    //           </li>
-    //           <li>
-    //             <a href="#">{names[2]}</a>
-    //           </li>
-    //           <li>
-    //             <a href="#">{names[3]}</a>
-    //           </li>
-    //         </ul>
-    //       </Swipeable>
-    //     </div>
-    //   </React.Fragment>
-    // );
   }
 
   //manipulates array of links and Names to move menu up
@@ -90,25 +57,32 @@ class App extends Component {
     array.unshift(popItem);
   };
 
-  handleMenuUp = () => {
+  //Handles menu movement by input of either "up" or "down" into (direction)
+  handleMenu = direction => {
     let menuArray = arr.slice();
     let spliceLinks = links.slice();
-    this.pushShift(menuArray, 0);
-    this.pushShift(spliceLinks, 0);
+    if (direction === "up") {
+      this.pushShift(menuArray, 0);
+      this.pushShift(spliceLinks, 0);
+    }
+    if (direction === "down") {
+      this.popUnshift(menuArray);
+      this.popUnshift(spliceLinks);
+    }
+
+    // then updates the state
     links = spliceLinks;
     arr = menuArray;
-    this.setState({ menuArray: arr, menuLinks: links });
-  };
-
-  handleMenuDown = () => {
-    let menuArray = arr.slice();
-    let spliceLinks = links.slice();
-    this.popUnshift(menuArray);
-    this.popUnshift(spliceLinks);
-
-    links = spliceLinks;
-    arr = menuArray;
-    this.setState({ menuArray: arr, menuLinks: links });
+    this.setState({
+      menuArray: arr,
+      menuLinks: links,
+      menuData: [
+        { id: 1, data: <Link to={links[0]}>{arr[0]}</Link> },
+        { id: 2, data: <Link to="#">{arr[1]}</Link> },
+        { id: 3, data: <Link to="#">{arr[2]}</Link> },
+        { id: 4, data: <Link to="#">{arr[3]}</Link> }
+      ]
+    });
   };
 }
 
